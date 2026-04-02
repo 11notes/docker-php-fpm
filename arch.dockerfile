@@ -34,8 +34,9 @@
     mv /usr/sbin/php-fpm${PHP_VERSION} /usr/sbin/php-fpm;
 
   RUN set -ex; \
-    sed -i 's|include=/etc/php85|include=/php/etc|' /etc/php/php-fpm.conf; \
-    sed -i 's|;error_log = log/php85/error.log|error_log = /php/run/php-fpm.log|' /etc/php/php-fpm.conf;
+    PHP_VERSION=$(echo "${APP_VERSION}" | awk -F '.' '{print $1$2}'); \
+    sed -i 's|include=/etc/php'${PHP_VERSION}'|include=/php/etc|' /etc/php/php-fpm.conf; \
+    sed -i 's|;error_log = log/php'${PHP_VERSION}'/error.log|error_log = /php/run/php-fpm.log|' /etc/php/php-fpm.conf;
 
 
 # :: FILE SYSTEM
