@@ -3,9 +3,7 @@
 # ╚═════════════════════════════════════════════════════╝
 # GLOBAL
   ARG APP_UID=1000 \
-      APP_GID=1000 \
-      APP_VERSION=0 \
-      APP_ROOT=""
+      APP_GID=1000
 
 # :: FOREIGN IMAGES
   FROM 11notes/util AS util
@@ -20,6 +18,7 @@
 # ╚═════════════════════════════════════════════════════╝
 # :: PHP
   FROM 11notes/alpine:stable AS build
+  ARG APP_VERSION
   COPY --from=util-bin / /
   USER root
 
@@ -47,6 +46,8 @@
 
 # :: FILE SYSTEM
   FROM alpine AS file-system
+  ARG APP_ROOT \
+      APP_VERSION
   COPY --from=util / /
   COPY --from=build /etc/php /distroless${APP_ROOT}/etc
 
