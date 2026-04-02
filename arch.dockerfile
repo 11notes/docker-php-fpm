@@ -3,7 +3,9 @@
 # ╚═════════════════════════════════════════════════════╝
 # GLOBAL
   ARG APP_UID=1000 \
-      APP_GID=1000
+      APP_GID=1000 \
+      APP_VERSION=0 \
+      APP_ROOT=""
 
 # :: FOREIGN IMAGES
   FROM 11notes/util AS util
@@ -18,7 +20,6 @@
 # ╚═════════════════════════════════════════════════════╝
 # :: PHP
   FROM 11notes/alpine:stable AS build
-  ARG APP_VERSION
   COPY --from=util-bin / /
   USER root
 
@@ -37,7 +38,8 @@
     PHP_VERSION=$(echo "${APP_VERSION}" | awk -F '.' '{print $1$2}'); \
     sed -i 's|include=/etc/php'${PHP_VERSION}'|include=/php/etc|' /etc/php/php-fpm.conf; \
     sed -i 's|;error_log = log/php'${PHP_VERSION}'/error.log|error_log = /php/run/php-fpm.log|' /etc/php/php-fpm.conf; \
-    sed -i 's|;error_log = syslog|error_log = /php/run/php.log|' /etc/php/php.ini;
+    sed -i 's|;error_log = syslog|error_log = /php/run/php.log|' /etc/php/php.ini; \
+    echo "${PHP_VERSION}" > /etc/php/version_alpine;
 
   RUN set -ex; \
     rm -rf /usr/local/bin/*;
@@ -45,8 +47,6 @@
 
 # :: FILE SYSTEM
   FROM alpine AS file-system
-  ARG APP_ROOT \
-      APP_VERSION
   COPY --from=util / /
   COPY --from=build /etc/php /distroless${APP_ROOT}/etc
 
