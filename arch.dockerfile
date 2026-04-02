@@ -36,7 +36,8 @@
   RUN set -ex; \
     PHP_VERSION=$(echo "${APP_VERSION}" | awk -F '.' '{print $1$2}'); \
     sed -i 's|include=/etc/php'${PHP_VERSION}'|include=/php/etc|' /etc/php/php-fpm.conf; \
-    sed -i 's|;error_log = log/php'${PHP_VERSION}'/error.log|error_log = /php/run/php-fpm.log|' /etc/php/php-fpm.conf;
+    sed -i 's|;error_log = log/php'${PHP_VERSION}'/error.log|error_log = /php/run/php-fpm.log|' /etc/php/php-fpm.conf; \
+    sed -i 's|;error_log = syslog|error_log = /php/run/php.log|' /etc/php/php.ini;
 
   RUN set -ex; \
     rm -rf /usr/local/bin/*;
