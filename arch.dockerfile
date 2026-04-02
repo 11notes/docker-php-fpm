@@ -38,6 +38,9 @@
     sed -i 's|include=/etc/php'${PHP_VERSION}'|include=/php/etc|' /etc/php/php-fpm.conf; \
     sed -i 's|;error_log = log/php'${PHP_VERSION}'/error.log|error_log = /php/run/php-fpm.log|' /etc/php/php-fpm.conf;
 
+  RUN set -ex; \
+    rm -rf /usr/local/bin/*;
+
 
 # :: FILE SYSTEM
   FROM alpine AS file-system
