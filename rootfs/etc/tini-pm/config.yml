@@ -1,0 +1,9 @@
+services:
+  - name: "nginx"
+    fail: true
+    bin: "/usr/local/bin/nginx"
+
+  - name: "php-fpm"
+    fail: true
+    bin: "/usr/sbin/php-fpm"
+    arguments: ["-F", "--pid", "/php/run/fpm.pid", "-c", "/php/etc/php.ini", "-y", "/php/etc/php-fpm.conf", "-O"]
