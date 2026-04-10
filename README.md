@@ -1,7 +1,7 @@
 ![banner](https://raw.githubusercontent.com/11notes/static/refs/heads/master/img/banner/README.png)
 
 # PHP-FPM
-![size](https://img.shields.io/badge/image_size-53MB-green?color=%2338ad2d)![5px](https://raw.githubusercontent.com/11notes/static/refs/heads/master/img/markdown/transparent5x2px.png)![pulls](https://img.shields.io/docker/pulls/11notes/php-fpm?color=2b75d6)![5px](https://raw.githubusercontent.com/11notes/static/refs/heads/master/img/markdown/transparent5x2px.png)[<img src="https://img.shields.io/github/issues/11notes/docker-php-fpm?color=7842f5">](https://github.com/11notes/docker-php-fpm/issues)![5px](https://raw.githubusercontent.com/11notes/static/refs/heads/master/img/markdown/transparent5x2px.png)![swiss_made](https://img.shields.io/badge/Swiss_Made-FFFFFF?labelColor=FF0000&logo=data:image/svg%2bxml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0idHJhbnNwYXJlbnQiLz4KICA8cGF0aCBkPSJtMTMgNmg2djdoN3Y2aC03djdoLTZ2LTdoLTd2LTZoN3oiIGZpbGw9IiNmZmYiLz4KPC9zdmc+)
+![size](https://img.shields.io/badge/image_size-${{ image_size }}-green?color=%2338ad2d)![5px](https://raw.githubusercontent.com/11notes/static/refs/heads/master/img/markdown/transparent5x2px.png)![pulls](https://img.shields.io/docker/pulls/11notes/php-fpm?color=2b75d6)![5px](https://raw.githubusercontent.com/11notes/static/refs/heads/master/img/markdown/transparent5x2px.png)[<img src="https://img.shields.io/github/issues/11notes/docker-php-fpm?color=7842f5">](https://github.com/11notes/docker-php-fpm/issues)![5px](https://raw.githubusercontent.com/11notes/static/refs/heads/master/img/markdown/transparent5x2px.png)![swiss_made](https://img.shields.io/badge/Swiss_Made-FFFFFF?labelColor=FF0000&logo=data:image/svg%2bxml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxyZWN0IHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0idHJhbnNwYXJlbnQiLz4KICA8cGF0aCBkPSJtMTMgNmg2djdoN3Y2aC03djdoLTZ2LTdoLTd2LTZoN3oiIGZpbGw9IiNmZmYiLz4KPC9zdmc+)
 
 run php with php-fpm (and nginx) rootless.
 
@@ -32,7 +32,6 @@ Below you find a comparison between this image and the most used or original one
 
 | **image** | **size on disk** | **init default as** | **[distroless](https://github.com/11notes/RTFM/blob/main/linux/container/image/distroless.md)** | supported architectures
 | ---: | ---: | :---: | :---: | :---: |
-| 11notes/php-fpm | 53MB | 1000:1000 | ❌ | amd64, arm64 |
 | php | 108MB | 0:0 | ❌ | 386, amd64, arm64v8, armv6, armv7, ppc64le, riscv64, s390x |
 
 # VOLUMES 📁
@@ -96,20 +95,20 @@ To find out how you can change the default UID/GID of this container image, cons
 # MAIN TAGS 🏷️
 These are the main tags for the image. There is also a tag for each commit and its shorthand sha256 value.
 
-* [8.5.4](https://hub.docker.com/r/11notes/php-fpm/tags?name=8.5.4)
-* [8.5.4-unraid](https://hub.docker.com/r/11notes/php-fpm/tags?name=8.5.4-unraid)
-* [8.5.4-nobody](https://hub.docker.com/r/11notes/php-fpm/tags?name=8.5.4-nobody)
+* [8.5.5](https://hub.docker.com/r/11notes/php-fpm/tags?name=8.5.5)
+* [8.5.5-unraid](https://hub.docker.com/r/11notes/php-fpm/tags?name=8.5.5-unraid)
+* [8.5.5-nobody](https://hub.docker.com/r/11notes/php-fpm/tags?name=8.5.5-nobody)
 
 ### There is no latest tag, what am I supposed to do about updates?
-It is my opinion that the ```:latest``` tag is a bad habbit and should not be used at all. Many developers introduce **breaking changes** in new releases. This would messed up everything for people who use ```:latest```. If you don’t want to change the tag to the latest [semver](https://semver.org/), simply use the short versions of [semver](https://semver.org/). Instead of using ```:8.5.4``` you can use ```:8``` or ```:8.5```. Since on each new version these tags are updated to the latest version of the software, using them is identical to using ```:latest``` but at least fixed to a major or minor version. Which in theory should not introduce breaking changes.
+It is my opinion that the ```:latest``` tag is a bad habbit and should not be used at all. Many developers introduce **breaking changes** in new releases. This would messed up everything for people who use ```:latest```. If you don’t want to change the tag to the latest [semver](https://semver.org/), simply use the short versions of [semver](https://semver.org/). Instead of using ```:8.5.5``` you can use ```:8``` or ```:8.5```. Since on each new version these tags are updated to the latest version of the software, using them is identical to using ```:latest``` but at least fixed to a major or minor version. Which in theory should not introduce breaking changes.
 
 If you still insist on having the bleeding edge release of this app, simply use the ```:rolling``` tag, but be warned! You will get the latest version of the app instantly, regardless of breaking changes or security issues or what so ever. You do this at your own risk!
 
 # REGISTRIES ☁️
 ```
-docker pull 11notes/php-fpm:8.5.4
-docker pull ghcr.io/11notes/php-fpm:8.5.4
-docker pull quay.io/11notes/php-fpm:8.5.4
+docker pull 11notes/php-fpm:8.5.5
+docker pull ghcr.io/11notes/php-fpm:8.5.5
+docker pull quay.io/11notes/php-fpm:8.5.5
 ```
 
 # UNRAID VERSION 🟠
@@ -141,4 +140,4 @@ This image supports nobody by default. Simply add **-nobody** to any tag and the
 # ElevenNotes™️
 This image is provided to you at your own risk. Always make backups before updating an image to a different version. Check the [releases](https://github.com/11notes/docker-php-fpm/releases) for breaking changes. If you have any problems with using this image simply raise an [issue](https://github.com/11notes/docker-php-fpm/issues), thanks. If you have a question or inputs please create a new [discussion](https://github.com/11notes/docker-php-fpm/discussions) instead of an issue. You can find all my other repositories on [github](https://github.com/11notes?tab=repositories).
 
-*created 02.04.2026, 16:33:19 (CET)*
+*created 10.04.2026, 08:56:19 (CET)*
