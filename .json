@@ -4,7 +4,7 @@
   "name": "php-fpm",
   "root": "/php",
   "semver": {
-    "version": "8.5.7"
+    "version": "8.5.8"
   },
   "readme": {
     "description": "run php with php-fpm (and nginx) rootless.",
