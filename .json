@@ -14,7 +14,7 @@
     },
     "distroless": {
       "layers": [
-        "11notes/distroless",
+        "11notes/php",
         "11notes/distroless:tini-pm",
         "11notes/distroless:localhealth",
         "11notes/nginx:full-stable"
