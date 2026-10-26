@@ -9,7 +9,7 @@ x-lockdown: &lockdown
 
 services:
   fpm:
-    image: "11notes/php-fpm:8.2.35"
+    image: "11notes/php-fpm:8.5.12"
     <<: *lockdown
     environment:
       TZ: "Europe/Zurich"
