@@ -21,7 +21,9 @@
       ]
     },
     "comparison": {
-      "image": "php:8.5.4-fpm-alpine"
+      "image": "php:8.5.12-fpm-alpine"
     }
-  }
+  },
+  "unraid": true,
+  "nobody": true
 }
