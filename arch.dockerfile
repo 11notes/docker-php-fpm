@@ -45,6 +45,23 @@
     COPY --from=php / /
     COPY ./rootfs/ /
 
+    COPY <<'EOF' /php/etc/php-fpm.conf
+[global]
+daemonize = no
+log_level = notice
+error_log = /proc/self/fd/2
+[www]
+listen = 9000
+pm = dynamic
+pm.max_children = 10
+pm.start_servers = 2
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3
+clear_env = no
+catch_workers_output = yes
+decorate_workers_output = no
+EOF
+
 # :: PERSISTENT DATA
   VOLUME ["${APP_ROOT}/etc", "${APP_ROOT}/var"]
 
