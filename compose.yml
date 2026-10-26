@@ -24,7 +24,6 @@ services:
       # require for read-only container
       - "/nginx/cache:uid=1000,gid=1000"
       - "/nginx/run:uid=1000,gid=1000"
-      - "/php/run:uid=1000,gid=1000"
     restart: "always"
 
 volumes:
